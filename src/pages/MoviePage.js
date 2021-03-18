@@ -1,23 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { getMovies } from '../utils/movieService';
 import Modal from './Modal';
 
-const MovieList = ({setShowButton, showButton}) => {
+const MovieList = () => {
 
   const [filmer, setFilmer] = useState([]);
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const[video, setVideo] = useState([]);
+  const [error, setError] = useState(null);
 
-  const getData = async () => {
-    setLoading(true);
-    const movies = await getMovies();
-    setFilmer(movies);
-    setShowButton(false);
-    setLoading(false);
-    
-  };
+  useEffect(() => {
+    const getData = async () => {
+      try{
+      setLoading(true);
+      const movies = await getMovies();
+      setFilmer(movies);
+      setLoading(false);
+      } catch (error)
+    {
+      setError(error);
+    } 
+   };
+  getData();
+ }, []);
+
+  
   
   const closeModal = () => {
       setModal(false);
@@ -48,15 +57,6 @@ const MovieList = ({setShowButton, showButton}) => {
     padding: 2%;
   `
 
-  const StyledButton = styled.button `
-  width: 10rem;
-  margin: 10px;
-  padding: 5px;
-  font-weight: light;
-  font-size: 16px;
-  background-color: white;
-  `
-
   const StyledImg = styled.img `
   width: 200px;
   float: right;
@@ -64,13 +64,12 @@ const MovieList = ({setShowButton, showButton}) => {
   return (
       <>
       <Modal modal={modal} setModal={setModal} video={video} closeModal={closeModal} />
-    <section className="filmer">
-      {filmer?.length > 0
+      <section className="filmer">
+      {!error || filmer?.length > 0
         ? (
           <MovieWrapper>
-              {setShowButton(false)}
             {filmer.map((movie, index) => (
-              <StyledMovie key={index} onClick={() => modalMovie(movie.videoUrl, video.Title)}>
+              <StyledMovie key={index} onClick={() => modalMovie(...movie)}>
                    <StyledImg src={movie.imageUrl}/>
                 <h2>{movie.title}</h2>
                 <p>
@@ -82,8 +81,6 @@ const MovieList = ({setShowButton, showButton}) => {
             ))}
           </MovieWrapper>
         ) : null}
-        {showButton ? 
-      <StyledButton type="button" onClick={getData}>Hent filmer</StyledButton> : null}
       {loading ? <p>Loading</p> : null}
     </section>
     </>
