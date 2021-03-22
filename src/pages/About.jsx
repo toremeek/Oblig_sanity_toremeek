@@ -1,13 +1,16 @@
-import Footer from "./Footer";
+import { StyledAbout } from "../components/StyledComponents";
+
 
 const Om = () => {
+
+    
     return (
       <>
-        <p className="om">
+        <StyledAbout>
           Denne appen er laget av Tore Meek som en obligatorisk oppgave i kurset
           Utvikling av interaktive nettsteder på Hiof.
-        </p>
-        <Footer />
+        </StyledAbout>
+   
       </>
     );
   };

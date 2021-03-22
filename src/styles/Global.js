@@ -25,4 +25,13 @@ p {
   padding-top: 10px;
 }
 
+a,
+.active {
+  margin: 20px;
+  color: white;
+  font-size: 20px;
+  font-family: "Overpass Mono", monospace;
+}
+
+
 `

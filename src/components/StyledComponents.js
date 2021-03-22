@@ -22,5 +22,8 @@
   width: 200px;
   float: right;
   `
+  export const StyledAbout = styled.p `
+  margin: 5% 25% 5% 25%;
+  `
 
   
