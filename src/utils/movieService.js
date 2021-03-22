@@ -6,6 +6,6 @@ const movieFields =  `title, ingress, "actor": actor->name, imageUrl, videoUrl
 `;
 
 export const getMovies = async () => {
-    const data = await client.fetch(`*[_type == "movie"]{${movieFields}}`);
+    const data = await client.fetch(`*[_type == "movie"]{${movieFields}, body[]{...}}`);
     return data;
 }

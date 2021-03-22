@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import { MovieWrapper, StyledImg, StyledMovie } from '../components/StyledComponents';
 import { getMovies } from '../utils/movieService';
 import Modal from './Modal';
 
@@ -11,27 +11,31 @@ const MovieList = () => {
   const[video, setVideo] = useState([]);
   const [error, setError] = useState(null);
 
+
+  console.table("filmer", filmer);
+
+  /*kjører getdata når siden lastes og catcher error*/
   useEffect(() => {
     const getData = async () => {
-      try{
       setLoading(true);
+      try{
       const movies = await getMovies();
       setFilmer(movies);
+      
       setLoading(false);
       } catch (error)
     {
       setError(error);
     } 
    };
+   setError(null);
   getData();
  }, []);
-
   
-  
+ /*lukker modal*/
   const closeModal = () => {
       setModal(false);
   }
-
   /*setter staten til video med videoUrl og title*/
   const modalMovie = (videoUrl) => {
       setVideo(videoUrl);
@@ -39,37 +43,17 @@ const MovieList = () => {
       console.log(video);
   }
 
-  const MovieWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    max-width: 700px;
-    color: black;
-    margin: auto;
-  `
-
-  const StyledMovie = styled.div `
-    text-align: left;
-    cursor: pointer;
-    background-color: white;
-    color: black;
-    margin: 1%;
-    padding: 2%;
-  `
-
-  const StyledImg = styled.img `
-  width: 200px;
-  float: right;
-  `
   return (
       <>
-      <Modal modal={modal} setModal={setModal} video={video} closeModal={closeModal} />
+     
+      <Modal modal={modal} setModal={setModal} filmer={filmer} video={video} closeModal={closeModal} />
       <section className="filmer">
-      {!error || filmer?.length > 0
+        {error? <p>Noe gikk galt</p> : null}
+      {filmer?.length > 0
         ? (
           <MovieWrapper>
             {filmer.map((movie, index) => (
-              <StyledMovie key={index} onClick={() => modalMovie(...movie)}>
+              <StyledMovie key={index} onClick={() => modalMovie(movie.videoUrl)}>
                    <StyledImg src={movie.imageUrl}/>
                 <h2>{movie.title}</h2>
                 <p>
