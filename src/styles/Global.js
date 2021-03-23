@@ -52,6 +52,7 @@ h1 {
   font-family: "Overpass Mono", monospace;
   background-color: black;
   color: rgb(255, 255, 255);
+  height: 100%;
 }
 .moviesearch {
   display: flex;
@@ -69,16 +70,17 @@ h1 {
 }
 
 .movies_wrapper {
-  margin-top: 24px;
+  padding: 15px;
   display: grid;
-  grid-template-columns: 30% 30% 30%;
-  grid-gap: 24px;
+  grid-template-columns: 33% 33% 33%;
+  grid-gap: 20px;
   background-color: black;
 }
 
 .movie_item {
   background-color: rgb(0, 0, 0);
   width: 100%;
+  
 }
 .poster {
   width: 80%;
@@ -97,7 +99,7 @@ a {
   text-decoration: none;
   text-transform: uppercase;
   font-family: "Overpass Mono", monospace;
-  font-size: 14px;
+  font-size: 1rem;
   color: #000000;
   text-align: center;
   transition: all 0.15s;

@@ -9,7 +9,7 @@ const Search = ({ setSearch, sendRequest }) => {
 
   return (
     <section onSubmit={sendRequest} className="moviesearch">
-      <p>Finn informasjon om din favorittfilm</p>
+      <p>Søk i filmdatabasen OMDB etter dine favoritt-titler</p>
       <form>
         <input
           type="text"

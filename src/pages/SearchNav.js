@@ -1,7 +1,11 @@
+import Footer from "../components/Footer";
 import Main from "../components/SearchMain";
 
-const SearchNav = () => {
-  return <Main />;
-};
+const SearchNav = () => (
+  <>
+  <Main/>
+  <Footer/>
+  </>
+)
 
 export default SearchNav;

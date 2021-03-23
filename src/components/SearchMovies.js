@@ -53,7 +53,7 @@ const Movies = ({ loading, sort, error, search, data }) => {
         {!error && data?.length > 0 ? (
           <div className="movies_wrapper">
             {data.map((movie) => (
-              <div className="movie_item" key={movie.imdbID}>
+              <div className="movie_item" key={movie.Title}>
                 <img
                   alt={`Plakat fra filmen ${movie.Title}`}
                   className="poster"

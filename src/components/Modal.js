@@ -2,30 +2,32 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
+/*Styled compoentns*/
+const Styledmodal = styled(motion.section) `
+display: flex;
+width: 100%;
+height: 100vh;
+justify-content: space-around;
+align-items: center;
+background-color: rgba(0, 0, 0, 0.753);
+position: fixed;
+top: 0;
+left: 0;
+cursor: pointer;
+z-index: 0;
+`
+const StyledInnerModal = styled(motion.section)`
+  cursor: pointer;
+  text-align: left;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  max-width: 100%;
+  overflow-y: auto;
+  padding: 10px;
+`
+
 const Modal = ({modal, filmer, closeModal, video}) => {
 
-  const Styledmodal = styled(motion.section) `
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.753);
-    position: fixed;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-    z-index: 0;
-  `
-  const StyledInnerModal = styled(motion.section)`
-      cursor: pointer;
-      text-align: left;
-      background-color: rgb(255, 255, 255);
-      color: black;
-      max-width: 100%;
-      overflow-y: auto;
-      padding: 10px;
-  `
 
   return (
   <>
@@ -40,7 +42,7 @@ const Modal = ({modal, filmer, closeModal, video}) => {
       damping: 20
     }}
   >
-      <iframe title="trailer" width="560" height="315" src={video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture: fullscreen" allowfullscreen></iframe>
+      <iframe title="trailer" width="560" height="315" src={video} frameBorder="0"></iframe>
   </StyledInnerModal>
   </Styledmodal>): null}
   </>

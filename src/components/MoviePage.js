@@ -1,7 +1,32 @@
 import { useState, useEffect } from 'react';
 import Modal from './Modal';
-import { MovieWrapper, StyledImg, StyledMovie } from './StyledComponents';
 import { getMovies } from '../utils/movieService';
+import styled from 'styled-components';
+
+/*_Styled components*/
+
+export const MovieWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 700px;
+    color: black;
+    margin: auto;
+  `
+
+  export const StyledMovie = styled.div `
+    text-align: left;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    margin: 1%;
+    padding: 2%;
+  `
+
+  export const StyledImg = styled.img `
+  width: 200px;
+  float: right;
+  `
 
 const MovieList = () => {
 
@@ -12,7 +37,6 @@ const MovieList = () => {
   const [error, setError] = useState(null);
 
 
-  console.table("filmer", filmer);
 
   /*kjører getdata når siden lastes og catcher error*/
   useEffect(() => {

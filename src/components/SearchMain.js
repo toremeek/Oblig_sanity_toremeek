@@ -45,7 +45,6 @@ const Main = () => {
 
   return (
     <div>
-      <h1>Filmdatabasen</h1>
       <Search search={search} sendRequest={sendRequest} setSearch={setSearch} />
       <Movies
         search={search}
