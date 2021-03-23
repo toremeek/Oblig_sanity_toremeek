@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { MovieWrapper, StyledImg, StyledMovie } from '../components/StyledComponents';
-import { getMovies } from '../utils/movieService';
 import Modal from './Modal';
+import { MovieWrapper, StyledImg, StyledMovie } from './StyledComponents';
+import { getMovies } from '../utils/movieService';
 
 const MovieList = () => {
 

@@ -1,8 +1,7 @@
 import './App.css';
-import Footer from './pages/Footer';
-import Header from './pages/Header';
-import MovieList from './pages/MoviePage';
+import Header from './components/Header';
 import Routes from './routes/Routes';
+import Footer from './components/Footer'
 import { GlobalStyles } from './styles/Global';
 
 function App() {
