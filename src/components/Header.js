@@ -15,7 +15,7 @@ const Header = ({url, head}) => {
 const HeroImage = styled.div`
 background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${url});
 height: 380px;
-max-width: 1000px;
+max-width: 1100px;
 background-position: cover;
 position: relative;
 margin: 10px auto 20px auto;

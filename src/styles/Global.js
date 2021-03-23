@@ -64,16 +64,16 @@ h1 {
 
 .movies {
   margin: auto;
-  max-width: 1200px;
+  max-width: 1100px;
   background-color: rgb(0, 0, 0);
   color: white;
 }
 
 .movies_wrapper {
-  padding: 15px;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
-  grid-gap: 20px;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
   background-color: black;
 }
 
@@ -83,7 +83,7 @@ h1 {
   
 }
 .poster {
-  width: 80%;
+  width: 90%;
   cursor: pointer;
 }
 

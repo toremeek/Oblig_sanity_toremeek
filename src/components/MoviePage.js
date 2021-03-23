@@ -61,10 +61,9 @@ const MovieList = () => {
       setModal(false);
   }
   /*setter staten til video med videoUrl og title*/
-  const modalMovie = (videoUrl) => {
-      setVideo(videoUrl);
+  const modalMovie = ({...movie}) => {
+      setVideo(movie);
       setModal(true);
-      console.log(video);
   }
 
   return (
@@ -77,7 +76,7 @@ const MovieList = () => {
         ? (
           <MovieWrapper>
             {filmer.map((movie, index) => (
-              <StyledMovie key={index} onClick={() => modalMovie(movie.videoUrl)}>
+              <StyledMovie key={index} onClick={() => modalMovie(movie)}>
                    <StyledImg src={movie.imageUrl}/>
                 <h2>{movie.title}</h2>
                 <p>

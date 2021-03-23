@@ -21,13 +21,17 @@ const StyledInnerModal = styled(motion.section)`
   text-align: left;
   background-color: rgb(255, 255, 255);
   color: black;
-  max-width: 100%;
+  margin: auto;
+  max-width: 740px;
   overflow-y: auto;
-  padding: 10px;
 `
 
-const Modal = ({modal, filmer, closeModal, video}) => {
+const StyledModalSection = styled.section `
+margin: auto;
+width: 95%;
+`
 
+const Modal = ({modal, closeModal, video}) => {
 
   return (
   <>
@@ -42,7 +46,13 @@ const Modal = ({modal, filmer, closeModal, video}) => {
       damping: 20
     }}
   >
-      <iframe title="trailer" width="560" height="315" src={video} frameBorder="0"></iframe>
+    <StyledModalSection>
+      <iframe title="trailer" width="696" height="378" src={video.videoUrl} frameBorder="0"></iframe>
+      
+      <p>Tittel: {video.title}</p>
+      <p>Handling: {video.ingress}</p>
+      <p>Hovedrolle: {video.actor}</p>
+      </StyledModalSection>
   </StyledInnerModal>
   </Styledmodal>): null}
   </>
