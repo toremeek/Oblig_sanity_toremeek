@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import SanityContent from "./SanityContent";
 
 /*Styled compoentns*/
 const Styledmodal = styled(motion.section) `
@@ -18,17 +19,31 @@ z-index: 0;
 `
 const StyledInnerModal = styled(motion.section)`
   cursor: pointer;
-  text-align: left;
   background-color: rgb(255, 255, 255);
   color: black;
-  margin: auto;
-  max-width: 740px;
+  max-width: 700px;
   overflow-y: auto;
 `
 
 const StyledModalSection = styled.section `
-margin: auto;
 width: 95%;
+`
+
+const StyledBody = styled.section `
+max-width: 550px;
+margin: auto;
+h1 {
+  font-size: 2.3rem;
+  text-align: center;
+  margin: .5rem;
+}
+p {
+  font-size: 1.1rem 0;
+  text-align: left;
+  line-height: 1.3;
+
+}
+
 `
 
 const Modal = ({modal, closeModal, video}) => {
@@ -48,10 +63,9 @@ const Modal = ({modal, closeModal, video}) => {
   >
     <StyledModalSection>
       <iframe title="trailer" width="696" height="378" src={video.videoUrl} frameBorder="0"></iframe>
-      
-      <p>Tittel: {video.title}</p>
-      <p>Handling: {video.ingress}</p>
-      <p>Hovedrolle: {video.actor}</p>
+      <StyledBody>
+      <SanityContent data= {video?.body}/>
+      </StyledBody>
       </StyledModalSection>
   </StyledInnerModal>
   </Styledmodal>): null}

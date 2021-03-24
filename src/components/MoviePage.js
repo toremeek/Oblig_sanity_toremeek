@@ -28,8 +28,11 @@ export const MovieWrapper = styled.div`
   float: right;
   `
 
+/*funksjonen som kjører alt*/
+
 const MovieList = () => {
 
+  /*usestates*/
   const [filmer, setFilmer] = useState([]);
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);

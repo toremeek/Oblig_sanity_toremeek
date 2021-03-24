@@ -15,7 +15,7 @@ const Modal = ({ film, modal, search, wait, closeModal }) => {
                 duration: 0.5,
                 stiffness: 200,
                 damping: 20
-              }}
+              }} key={film.imdbID}
             >
               <img
                 alt={`Plakat fra filmen ${film.Title}`}

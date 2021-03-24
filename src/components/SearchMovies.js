@@ -3,6 +3,7 @@ import { request } from "../utils/SearchRequests";
 import Modal from "./SearchModal";
 
 const Movies = ({ loading, sort, error, search, data }) => {
+ 
   const [film, setFilm] = useState("");
   const [wait, setWait] = useState(false);
   const [modal, setModal] = useState(false);
@@ -22,6 +23,7 @@ const Movies = ({ loading, sort, error, search, data }) => {
     );
     setFilm(getTitle);
     setWait(false);
+   
     setModal(true);
   };
 
@@ -53,7 +55,7 @@ const Movies = ({ loading, sort, error, search, data }) => {
         {!error && data?.length > 0 ? (
           <div className="movies_wrapper">
             {data.map((movie) => (
-              <div className="movie_item" key={movie.Title}>
+              <div key={movie.imdbID} className="movie_item">
                 <img
                   alt={`Plakat fra filmen ${movie.Title}`}
                   className="poster"
